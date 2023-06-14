@@ -1,17 +1,18 @@
+using Microsoft.VisualBasic.ApplicationServices;
+
 namespace Stock
 {
-    internal static class Program
-    {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
+    public static class Program
+    {        
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            using (var context = new Context())
+            {
+                List<Checkin> checkin = context.Checkin.ToList();
+                Form1 mainForm = new Form1();
+                mainForm.ShowDialog();
+            }
+
         }
     }
 }
