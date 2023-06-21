@@ -13,7 +13,14 @@ namespace Stock
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Context context = new Context();
+            Form6 form6 = new Form6();
+            this.Hide();
+            List<Checkin> checkin = context.Checkin.ToList();
 
+            form6.SetData(checkin);
+
+            form6.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)

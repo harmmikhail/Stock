@@ -12,7 +12,6 @@ namespace Stock
                 Form1 mainForm = new Form1();
                 mainForm.ShowDialog();
             }
-
         }
     }
 }

@@ -16,5 +16,19 @@ namespace Stock
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            this.Hide();
+            form5.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            this.Hide();
+            form1.ShowDialog();
+        }
     }
 }

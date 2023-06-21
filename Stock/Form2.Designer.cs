@@ -60,7 +60,6 @@ namespace Stock
 
         public void SetData(List<Checkin> checkin)
         {
-
             dataGridView1.DataSource = checkin;
         }
 
