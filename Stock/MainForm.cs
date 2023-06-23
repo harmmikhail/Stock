@@ -4,9 +4,9 @@ using System.ComponentModel.Design.Serialization;
 
 namespace Stock
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -14,7 +14,7 @@ namespace Stock
         private void button1_Click(object sender, EventArgs e)
         {
             Context context = new Context();
-            Form6 form6 = new Form6();
+            GoodsUpdatingForm form6 = new GoodsUpdatingForm();
             this.Hide();
             List<Checkin> checkin = context.Checkin.ToList();
 
@@ -26,7 +26,7 @@ namespace Stock
         private void button2_Click(object sender, EventArgs e)
         {
             Context context = new Context();
-            Form3 form3 = new Form3();
+            GoodsUploadForm form3 = new GoodsUploadForm();
             this.Hide();
             List<Checkin> checkin = context.Checkin.ToList();
             form3.SetData(checkin);
@@ -36,7 +36,7 @@ namespace Stock
         private void button3_Click(object sender, EventArgs e)
         {
             Context context = new Context();
-            Form2 form2 = new Form2();
+            InventoryListForm form2 = new InventoryListForm();
             this.Hide();
             List<Checkin> checkin = context.Checkin.ToList();
 

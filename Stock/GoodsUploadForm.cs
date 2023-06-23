@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Stock
 {
-    public partial class Form3 : Form
+    public partial class GoodsUploadForm : Form
     {
-        public Form3()
+        public GoodsUploadForm()
         {
             InitializeComponent();
         }
@@ -60,14 +60,14 @@ namespace Stock
                 context.SaveChanges();
                 textBox1.Text = "";
 
-                Form5 form5 = new Form5();
+                ExpenseNoteForm expenseNoteForm = new ExpenseNoteForm();
                 this.Hide();
-                form5.ShowDialog();
+                expenseNoteForm.ShowDialog();
             }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            MainForm form1 = new MainForm();
             this.Hide();
             form1.ShowDialog();
         }

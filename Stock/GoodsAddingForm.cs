@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Stock
 {
-    public partial class Form7 : Form
+    public partial class GoodsAddingForm : Form
     {
-        public Form7()
+        public GoodsAddingForm()
         {
             InitializeComponent();
         }
@@ -35,17 +35,23 @@ namespace Stock
                 return;
             }
 
-            Checkin newCheckin = new Checkin
-            {
-                Name = name,
-                Price = price,
-                Quantity = quantity,
-                Units = "kg",
-                LastTimeDelivery = DateTime.Now.Date
-            };
-
             using (var context = new Context())
             {
+                if (context.Checkin.Any(c => c.Name == name))
+                {
+                    MessageBox.Show("Товар з таким ім'ям уже існує. Введіть іншу назву.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Checkin newCheckin = new Checkin
+                {
+                    Name = name,
+                    Price = price,
+                    Quantity = quantity,
+                    Units = "kg",
+                    LastTimeDelivery = DateTime.Now.Date
+                };
+
                 context.Checkin.Add(newCheckin);
                 context.SaveChanges();
             }
@@ -57,9 +63,9 @@ namespace Stock
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            GoodsUpdatingForm goodsUpdating = new GoodsUpdatingForm();
             this.Hide();
-            form1.ShowDialog();
+            goodsUpdating.ShowDialog();
         }
     }
 }

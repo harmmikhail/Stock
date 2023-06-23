@@ -13,21 +13,59 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Stock
 {
-    public partial class Form6 : Form
+    public partial class GoodsUpdatingForm : Form
     {
-        public Form6()
+        public GoodsUpdatingForm()
         {
             InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            MainForm form1 = new MainForm();
             this.Hide();
             form1.ShowDialog();
         }
 
+        private List<ProductInfo> addedProducts = new List<ProductInfo>();
+
+
         private void button1_Click(object sender, EventArgs e)
+        {
+            if (addedProducts.Count == 0)
+            {
+                MessageBox.Show("Додайте хоча б один товар перед підтвердженням.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            ProfitsNoteForm note = new ProfitsNoteForm(addedProducts);
+            this.Hide();
+            note.ShowDialog();
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            comboBox1.Items.Clear();
+
+            using (var context = new Context())
+            {
+                var checkins = context.Checkin.ToList();
+
+                foreach (var checkin in checkins)
+                {
+                    comboBox1.Items.Add(checkin.Name);
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GoodsAddingForm form7 = new GoodsAddingForm();
+            this.Hide();
+            form7.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
             string selectedName = comboBox1.SelectedItem as string;
             if (string.IsNullOrEmpty(selectedName))
@@ -64,29 +102,29 @@ namespace Stock
                 checkin.Quantity += quantityToAdd;
                 checkin.LastTimeDelivery = selectedDate;
                 context.SaveChanges();
-            }
-        }
 
-        private void comboBox1_Click(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-
-            using (var context = new Context())
-            {
-                var checkins = context.Checkin.ToList();
-
-                foreach (var checkin in checkins)
+                addedProducts.Add(new ProductInfo
                 {
-                    comboBox1.Items.Add(checkin.Name);
-                }
+                    Name = checkin.Name,
+                    Quantity = quantityToAdd,
+                    Price = checkin.Price,
+                    DeliveryDate = selectedDate
+                });
             }
+
+            comboBox1.SelectedIndex = -1;
+            textBox1.Text = "";
+            dateTimePicker1.Value = DateTime.Now.Date;
+
+            MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            Form7 form7 = new Form7();
-            this.Hide();
-            form7.ShowDialog();
+            comboBox1.SelectedIndex = -1;
+            textBox1.Text = "";
+            dateTimePicker1.Value = DateTime.Now.Date;
         }
     }
 }

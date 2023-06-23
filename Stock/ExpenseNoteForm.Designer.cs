@@ -1,6 +1,6 @@
 ﻿namespace Stock
 {
-    partial class Form4
+    partial class ExpenseNoteForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -19,14 +19,14 @@
         {
             SuspendLayout();
             // 
-            // Form4
+            // ExpenseNote
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1441, 806);
+            ClientSize = new Size(669, 394);
             Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Form4";
+            Margin = new Padding(4);
+            Name = "ExpenseNote";
             Text = "Видаткова накладна";
             ResumeLayout(false);
         }

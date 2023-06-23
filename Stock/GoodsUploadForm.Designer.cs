@@ -2,7 +2,7 @@
 
 namespace Stock
 {
-    partial class Form3
+    partial class GoodsUploadForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -51,12 +51,12 @@ namespace Stock
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // label1
+            // labelTotalSum
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(3, 73);
-            label1.Name = "label1";
+            label1.Name = "labelTotalSum";
             label1.Size = new Size(177, 21);
             label1.TabIndex = 4;
             label1.Text = "Введіть назву товару";
@@ -68,12 +68,12 @@ namespace Stock
             textBox1.Size = new Size(129, 23);
             textBox1.TabIndex = 7;
             // 
-            // label2
+            // labelDate
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(3, 138);
-            label2.Name = "label2";
+            label2.Name = "labelDate";
             label2.Size = new Size(208, 21);
             label2.TabIndex = 6;
             label2.Text = "Введіть кількість товарів";
@@ -113,7 +113,7 @@ namespace Stock
             Controls.Add(button3);
             Controls.Add(dataGridView1);
             Name = "Form3";
-            Text = "Form3";
+            Text = "Вигрузка товару";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

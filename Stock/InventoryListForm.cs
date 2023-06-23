@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace Stock
 {
-    public partial class Form4 : Form
+    public partial class InventoryListForm : Form
     {
-        public Form4()
+        public InventoryListForm()
         {
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm form1 = new MainForm();
+            this.Hide();
+            form1.ShowDialog();
+        }
     }
 }

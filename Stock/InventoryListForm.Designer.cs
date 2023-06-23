@@ -2,7 +2,7 @@
 
 namespace Stock
 {
-    partial class Form2 : Form
+    partial class InventoryListForm : Form
     {
         private System.ComponentModel.IContainer components = null;
 

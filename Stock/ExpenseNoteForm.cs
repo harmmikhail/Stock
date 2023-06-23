@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Stock
 {
-    public partial class Form5 : Form
+    public partial class ExpenseNoteForm : Form
     {
-        public Form5()
+        public ExpenseNoteForm()
         {
             InitializeComponent();
         }
+
     }
 }

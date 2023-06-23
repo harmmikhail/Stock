@@ -1,6 +1,6 @@
 ﻿namespace Stock
 {
-    partial class Form6
+    partial class GoodsUpdatingForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -27,6 +27,8 @@
             textBox1 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             button1.Name = "button1";
             button1.Size = new Size(144, 48);
             button1.TabIndex = 5;
-            button1.Text = "Підтвердити";
+            button1.Text = "Сформувати накладну";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -129,11 +131,35 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // Form6
+            // button4
+            // 
+            button4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(12, 318);
+            button4.Name = "button4";
+            button4.Size = new Size(144, 28);
+            button4.TabIndex = 14;
+            button4.Text = "Додати";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.Location = new Point(183, 318);
+            button5.Name = "button5";
+            button5.Size = new Size(144, 28);
+            button5.TabIndex = 15;
+            button5.Text = "Скасувати";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // GoodsUpdatingForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1011, 553);
+            Controls.Add(button5);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(dateTimePicker1);
             Controls.Add(textBox1);
@@ -144,7 +170,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Name = "Form6";
+            Name = "GoodsUpdatingForm";
             Text = "Додавання товару";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -167,5 +193,7 @@
         private TextBox textBox1;
         private DateTimePicker dateTimePicker1;
         private Button button3;
+        private Button button4;
+        private Button button5;
     }
 }
