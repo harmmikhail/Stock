@@ -21,7 +21,7 @@ namespace Stock
         {
             Form1 form1 = new Form1();
             this.Hide();
-            form1.ShowDialog();            
+            form1.ShowDialog();
         }
     }
 }

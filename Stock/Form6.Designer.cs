@@ -145,7 +145,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "Form6";
-            Text = "Form6";
+            Text = "Додавання товару";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

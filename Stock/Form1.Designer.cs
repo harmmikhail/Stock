@@ -67,7 +67,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Головна";
             ResumeLayout(false);
         }
 

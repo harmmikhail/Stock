@@ -31,7 +31,7 @@ namespace Stock
 
             if (!int.TryParse(priceText, out int price) || !int.TryParse(quantityText, out int quantity))
             {
-                MessageBox.Show("Введенные значения для цены и количества должны быть целыми числами.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введені значення для ціни або кількості мають бути цілими числами.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -41,7 +41,7 @@ namespace Stock
                 Price = price,
                 Quantity = quantity,
                 Units = "kg",
-                LastTimeDelivery = DateTime.Now.Date 
+                LastTimeDelivery = DateTime.Now.Date
             };
 
             using (var context = new Context())
@@ -53,6 +53,13 @@ namespace Stock
             textBoxName.Text = "";
             textBoxPrice.Text = "";
             textBoxQuantity.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            this.Hide();
+            form1.ShowDialog();
         }
     }
 }

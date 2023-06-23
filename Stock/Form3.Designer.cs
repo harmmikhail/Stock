@@ -23,9 +23,9 @@ namespace Stock
             button3 = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
             label2 = new Label();
             button1 = new Button();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -63,17 +63,10 @@ namespace Stock
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(217, 73);
+            textBox1.Location = new Point(217, 139);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(129, 23);
-            textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(217, 139);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(129, 23);
-            textBox2.TabIndex = 7;
+            textBox1.TabIndex = 7;
             // 
             // label2
             // 
@@ -98,15 +91,24 @@ namespace Stock
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(217, 74);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(129, 23);
+            comboBox1.TabIndex = 9;
+            comboBox1.DropDown += comboBox1_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1035, 559);
+            Controls.Add(comboBox1);
             Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
             Controls.Add(textBox1);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(dataGridView1);
@@ -128,8 +130,8 @@ namespace Stock
         private Button button3;
         private Label label1;
         private TextBox textBox1;
-        private TextBox textBox2;
         private Label label2;
         private Button button1;
+        private ComboBox comboBox1;
     }
 }

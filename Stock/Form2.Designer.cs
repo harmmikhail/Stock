@@ -53,7 +53,7 @@ namespace Stock
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Інвентарна відомість";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

@@ -93,6 +93,7 @@ namespace Stock
             button2.TabIndex = 20;
             button2.Text = "Повернутися до \r\nголовного меню";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 

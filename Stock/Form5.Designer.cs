@@ -34,9 +34,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(566, 376);
+            ClientSize = new Size(617, 399);
             Name = "Form5";
-            Text = "Form5";
+            Text = "Прибуткова накладна";
             ResumeLayout(false);
         }
 
