@@ -84,10 +84,12 @@ namespace Stock
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Context context = new Context();
+            List<Checkin> checkin = context.Checkin.ToList();
             GoodsUpdatingForm goodsUpdating = new GoodsUpdatingForm();
             this.Hide();
+            goodsUpdating.SetData(checkin);
             goodsUpdating.ShowDialog();
-
         }
 
         private void button3_Click(object sender, EventArgs e)

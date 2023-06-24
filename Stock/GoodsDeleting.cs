@@ -20,8 +20,11 @@ namespace Stock
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Context context = new Context();
+            List<Checkin> checkin = context.Checkin.ToList();
             GoodsUploadForm goodsUpload = new GoodsUploadForm();
             this.Hide();
+            goodsUpload.SetData(checkin);
             goodsUpload.ShowDialog();
         }
 
