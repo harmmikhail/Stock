@@ -37,8 +37,8 @@ namespace Stock
             labelTotalSum.Text = $"Загальна сума поставок: {totalSum} грн";
 
             labelDate.Text = $"Дата: {DateTime.Now.Date.ToShortDateString()}";
+
+            ProductInfo.ClearAddedProducts();
         }
-
-
     }
 }

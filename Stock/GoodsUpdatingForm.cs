@@ -22,28 +22,27 @@ namespace Stock
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MainForm form1 = new MainForm();
+            MainForm mainForm = new MainForm();
             this.Hide();
-            form1.ShowDialog();
+            mainForm.ShowDialog();
         }
-
-        private List<ProductInfo> addedProducts = new List<ProductInfo>();
-
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (addedProducts.Count == 0)
+            if (ProductInfo.AddedProducts.Count == 0)
             {
                 MessageBox.Show("Додайте хоча б один товар перед підтвердженням.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            ProfitsNoteForm note = new ProfitsNoteForm(addedProducts);
+            ProfitsNoteForm note = new ProfitsNoteForm(ProductInfo.AddedProducts);
+            MainForm mainForm = new MainForm();
             this.Hide();
             note.ShowDialog();
+            mainForm.ShowDialog();
         }
 
-        private void comboBox1_Click(object sender, EventArgs e)
+        private void comboBox1_DropDown(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
 
@@ -60,9 +59,9 @@ namespace Stock
 
         private void button3_Click(object sender, EventArgs e)
         {
-            GoodsAddingForm form7 = new GoodsAddingForm();
+            GoodsAddingForm goodsAdding = new GoodsAddingForm();
             this.Hide();
-            form7.ShowDialog();
+            goodsAdding.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -103,7 +102,7 @@ namespace Stock
                 checkin.LastTimeDelivery = selectedDate;
                 context.SaveChanges();
 
-                addedProducts.Add(new ProductInfo
+                ProductInfo.AddedProducts.Add(new ProductInfo
                 {
                     Name = checkin.Name,
                     Quantity = quantityToAdd,
@@ -112,12 +111,16 @@ namespace Stock
                 });
             }
 
+            DialogResult result = MessageBox.Show("Ви впевнені у коректності введених даних? Ви не зможете змінити інформацію.", "Попередження", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result == DialogResult.OK)
+            {
+                MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             comboBox1.SelectedIndex = -1;
             textBox1.Text = "";
             dateTimePicker1.Value = DateTime.Now.Date;
-
-            MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void button5_Click(object sender, EventArgs e)

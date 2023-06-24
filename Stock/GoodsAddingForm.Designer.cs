@@ -57,22 +57,22 @@ namespace Stock
             label3.TabIndex = 14;
             label3.Text = "Введіть дату реєстрації";
             // 
-            // labelDate
+            // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(26, 191);
-            label2.Name = "labelDate";
+            label2.Name = "label2";
             label2.Size = new Size(209, 21);
             label2.TabIndex = 13;
             label2.Text = "Введіть кількість товару ";
             // 
-            // labelTotalSum
+            // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(26, 58);
-            label1.Name = "labelTotalSum";
+            label1.Name = "label1";
             label1.Size = new Size(182, 21);
             label1.TabIndex = 12;
             label1.Text = "Введіть назву товару ";
@@ -138,8 +138,9 @@ namespace Stock
             button3.TabIndex = 23;
             button3.Text = "Скасувати";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
-            // GoodsAdding
+            // GoodsAddingForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -155,7 +156,7 @@ namespace Stock
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "GoodsAdding";
+            Name = "GoodsAddingForm";
             Text = "Додавання нового товару";
             ResumeLayout(false);
             PerformLayout();

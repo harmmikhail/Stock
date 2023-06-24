@@ -35,6 +35,14 @@ namespace Stock
                 return;
             }
 
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+
+            if (selectedDate < DateTime.Now.Date)
+            {
+                MessageBox.Show("Обрана дата не може бути меншою за сьогоднішню.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             using (var context = new Context())
             {
                 if (context.Checkin.Any(c => c.Name == name))
@@ -52,13 +60,26 @@ namespace Stock
                     LastTimeDelivery = DateTime.Now.Date
                 };
 
-                context.Checkin.Add(newCheckin);
-                context.SaveChanges();
-            }
+                ProductInfo.AddedProducts.Add(new ProductInfo
+                {
+                    Name = name,
+                    Quantity = quantity,
+                    Price = price,
+                    DeliveryDate = selectedDate
+                });
 
-            textBoxName.Text = "";
-            textBoxPrice.Text = "";
-            textBoxQuantity.Text = "";
+                DialogResult confirmationResult = MessageBox.Show("Ви впевнені у коректності введених даних? Ви не зможете змінити інформацію.", "Попередження", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (confirmationResult == DialogResult.OK)
+                {
+                    MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    context.Checkin.Add(newCheckin);
+                    context.SaveChanges();
+                    textBoxName.Text = "";
+                    textBoxPrice.Text = "";
+                    textBoxQuantity.Text = "";
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,6 +87,14 @@ namespace Stock
             GoodsUpdatingForm goodsUpdating = new GoodsUpdatingForm();
             this.Hide();
             goodsUpdating.ShowDialog();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBoxName.Text = "";
+            textBoxPrice.Text = "";
+            textBoxQuantity.Text = "";
         }
     }
 }

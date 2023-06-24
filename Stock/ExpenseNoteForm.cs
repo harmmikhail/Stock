@@ -12,10 +12,33 @@ namespace Stock
 {
     public partial class ExpenseNoteForm : Form
     {
-        public ExpenseNoteForm()
+        private List<ProductInfo> addedProducts;
+
+        public ExpenseNoteForm(List<ProductInfo> addedProducts)
         {
             InitializeComponent();
+            this.addedProducts = addedProducts;
         }
 
+        private void ExpenseNoteForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.Columns.Add("NameColumn", "Назва");
+            dataGridView1.Columns.Add("QuantityColumn", "Кількість");
+            dataGridView1.Columns.Add("PriceColumn", "Ціна");
+            dataGridView1.Columns.Add("TotalPriceColumn", "Загальна сума");
+
+            foreach (var product in addedProducts)
+            {
+                int totalPrice = product.Quantity * product.Price;
+                dataGridView1.Rows.Add(product.Name, product.Quantity, product.Price, totalPrice);
+            }
+
+            int totalSum = addedProducts.Sum(p => p.Quantity * p.Price);
+            labelTotalSum.Text = $"Загальна сума вигрузки: {totalSum} грн";
+
+            labelDate.Text = $"Дата: {DateTime.Now.Date.ToShortDateString()}";
+
+            ProductInfo.ClearAddedProducts();
+        }
     }
 }
