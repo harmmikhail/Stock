@@ -84,6 +84,16 @@ namespace Stock
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(textBoxName.Text) && !string.IsNullOrWhiteSpace(textBoxQuantity.Text) && !string.IsNullOrWhiteSpace(textBoxPrice.Text))
+            {
+                DialogResult result = MessageBox.Show("Дані не збережено. Ви впевнені?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
             Context context = new Context();
             List<Checkin> checkin = context.Checkin.ToList();
             GoodsUpdatingForm goodsUpdating = new GoodsUpdatingForm();

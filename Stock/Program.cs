@@ -31,16 +31,18 @@ namespace Stock
                             else
                             {
                                 remainingAttempts--;
-                                if (remainingAttempts == 1)
+                                if (remainingAttempts == 0)
+                                {
+                                    MessageBox.Show("Ви вичерпали ліміт спроб. Виконання програми буде припинено", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    return;
+                                }
+                                else if (remainingAttempts == 1)
                                 {
                                     MessageBox.Show("У вас залишилася 1 спроба. Після неї у вас не буде можливості увійти.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    remainingAttempts = 0;
                                 }
                                 else
                                 {
-                                    
-                                    MessageBox.Show("Невірний логін або пароль. Залишилося спроб: " + (remainingAttempts-1), "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    
+                                    MessageBox.Show("Невірний логін або пароль. Залишилося спроб: " + (remainingAttempts), "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                         }

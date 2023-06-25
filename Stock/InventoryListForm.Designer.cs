@@ -87,7 +87,7 @@ namespace Stock
             button3.Name = "button3";
             button3.Size = new Size(270, 55);
             button3.TabIndex = 5;
-            button3.Text = "Скасувати";
+            button3.Text = "Скинути";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 

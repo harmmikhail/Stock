@@ -75,9 +75,9 @@ namespace Stock
 
             string input = textBox1.Text;
 
-            if (!int.TryParse(input, out int quantityToAdd))
+            if (!int.TryParse(input, out int quantityToAdd) || quantityToAdd<0)
             {
-                MessageBox.Show("Введене значення не є числом. Будь ласка спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введене значення не є додатнім або значення невірне. Будь ласка спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -100,7 +100,6 @@ namespace Stock
 
                 checkin.Quantity += quantityToAdd;
                 checkin.LastTimeDelivery = selectedDate;
-                context.SaveChanges();
 
                 ProductInfo.AddedProducts.Add(new ProductInfo
                 {
@@ -109,18 +108,19 @@ namespace Stock
                     Price = checkin.Price,
                     DeliveryDate = selectedDate
                 });
+
+
+                DialogResult result = MessageBox.Show("Ви впевнені у коректності введених даних? Ви не зможете змінити інформацію.", "Попередження", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (result == DialogResult.OK)
+                {
+                    MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    context.SaveChanges();
+                    comboBox1.SelectedIndex = -1;
+                    textBox1.Text = "";
+                    dateTimePicker1.Value = DateTime.Now.Date;
+                }
             }
-
-            DialogResult result = MessageBox.Show("Ви впевнені у коректності введених даних? Ви не зможете змінити інформацію.", "Попередження", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            if (result == DialogResult.OK)
-            {
-                MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            comboBox1.SelectedIndex = -1;
-            textBox1.Text = "";
-            dateTimePicker1.Value = DateTime.Now.Date;
         }
 
         private void button5_Click(object sender, EventArgs e)

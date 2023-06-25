@@ -24,15 +24,7 @@ namespace Stock
             {
                 MessageBox.Show("Оберіть товар зі списку або введіть правильну назву", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-
-            string input = textBox1.Text;
-
-            if (!int.TryParse(input, out int quantityToAdd))
-            {
-                MessageBox.Show("Введене значення не є числом. Будь ласка спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            }  
 
             using (var context = new Context())
             {
@@ -42,9 +34,24 @@ namespace Stock
                     MessageBox.Show("Товар не знайдено.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                string inputQuantity = textBox1.Text;
+
+                if (!int.TryParse(inputQuantity, out int quantityToAdd) || quantityToAdd < 0)
+                {
+                    MessageBox.Show("Введене значення не є додатнім або значення невірне. Будь ласка, спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                int availableQuantity = checkin.Quantity;
+
+                if (quantityToAdd > availableQuantity)
+                {
+                    MessageBox.Show("Недостатньо товару на складі.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 checkin.Quantity -= quantityToAdd;
-                context.SaveChanges();
+                
 
                 ProductInfo.AddedProducts.Add(new ProductInfo
                 {
@@ -58,10 +65,10 @@ namespace Stock
                 if (result == DialogResult.OK)
                 {
                     MessageBox.Show("Товар було успішно додано.", "Підтверджено", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                comboBox1.SelectedIndex = -1;
-                textBox1.Text = "";
+                    context.SaveChanges();
+                    comboBox1.SelectedIndex = -1;
+                    textBox1.Text = "";
+                }                
             }
         }
 

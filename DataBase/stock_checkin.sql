@@ -1,0 +1,56 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: stock
+-- ------------------------------------------------------
+-- Server version	5.7.21-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `checkin`
+--
+
+DROP TABLE IF EXISTS `checkin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `checkin` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) NOT NULL,
+  `Units` longtext NOT NULL,
+  `Price` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `LastTimeDelivery` datetime(6) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Name_UNIQUE` (`Name`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `checkin`
+--
+
+LOCK TABLES `checkin` WRITE;
+/*!40000 ALTER TABLE `checkin` DISABLE KEYS */;
+INSERT INTO `checkin` VALUES (1,'Banana','kg',24,800,'2023-06-24 00:00:00.000000'),(2,'Tomato','kg',89,2300,'2023-06-25 00:00:00.000000'),(3,'Apple','kg',25,912,'2023-06-25 00:00:00.000000'),(4,'Pear','kg',70,180,'2023-06-25 00:00:00.000000'),(5,'Grape','kg',100,201,'2023-06-25 00:00:00.000000'),(6,'Peach','kg',120,756,'2023-06-25 00:00:00.000000'),(7,'Strawberry','kg',75,-99376,'2023-06-24 00:00:00.000000'),(8,'Raspberry','kg',100,233,'2023-06-25 00:00:00.000000'),(9,'Mango','kg',200,300,'2023-06-24 00:00:00.000000'),(10,'Watermelon','kg',65,4000,'2023-06-10 00:00:00.000000'),(11,'Melon','kg',85,200,'2023-06-10 00:00:00.000000'),(12,'Pineapple','kg',90,50,'2023-06-10 00:00:00.000000'),(13,'Potato','kg',15,1000,'2023-06-10 00:00:00.000000'),(14,'Cucumber','kg',50,400,'2023-06-10 00:00:00.000000'),(15,'Onion','kg',24,0,'2023-06-10 00:00:00.000000'),(16,'Carrot','kg',14,250,'2023-06-10 00:00:00.000000'),(17,'Pepper','kg',95,120,'2023-06-10 00:00:00.000000'),(18,'Cabbage','kg',80,500,'2023-06-10 00:00:00.000000'),(19,'Garlic','kg',300,50,'2023-06-10 00:00:00.000000'),(20,'Orange','kg',63,100,'2023-06-10 00:00:00.000000'),(21,'Lime','kg',150,115,'2023-06-23 00:00:00.000000'),(22,'Foof','kg',142,200,'2023-06-23 00:00:00.000000'),(23,'Tangerine','kg',100,800,'2023-06-21 00:00:00.000000'),(24,'Beef','kg',500,15,'2023-06-21 00:00:00.000000'),(25,'Nam','kg',155,150,'2023-06-22 00:00:00.000000'),(27,'Lichi','kg',410,10,'2023-06-24 00:00:00.000000'),(28,'Feyhoa','kg',700,15,'2023-06-24 00:00:00.000000'),(29,'Cherry','kg',110,1000,'2023-06-24 00:00:00.000000'),(30,'Plum','kg',150,500,'2023-06-24 00:00:00.000000'),(31,'Dragonfruit','kg',500,10,'2023-06-24 00:00:00.000000'),(32,'Corn','kg',45,600,'2023-06-24 00:00:00.000000'),(33,'Mangosteen','kg',320,50,'2023-06-24 00:00:00.000000'),(34,'Durian','kg',100,500,'2023-06-24 00:00:00.000000'),(37,'Popcorn','kg',100,15,'2023-06-24 00:00:00.000000'),(38,'Coconut','kg',100,65,'2023-06-24 00:00:00.000000'),(39,'Chikoo','kg',500,14,'2023-06-24 00:00:00.000000'),(40,'Fig','kg',250,140,'2023-06-24 00:00:00.000000'),(42,'Amla','kg',144,80,'2023-06-24 00:00:00.000000'),(44,'Janana','kg',15,1000,'2023-06-24 00:00:00.000000'),(45,'appl','kg',100,100,'2023-06-25 00:00:00.000000');
+/*!40000 ALTER TABLE `checkin` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-06-25 22:40:22

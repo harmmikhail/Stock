@@ -38,7 +38,7 @@ namespace Stock
             string selectedName = comboBox1.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selectedName))
             {
-                MessageBox.Show("Будь ласка, виберіть назву для видалення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Будь ласка, виберіть назву для видалення або змініть назву введеного товару.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

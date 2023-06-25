@@ -59,6 +59,7 @@
             usernameTextBox.ForeColor = SystemColors.Desktop;
             usernameTextBox.Location = new Point(58, 63);
             usernameTextBox.Margin = new Padding(4, 3, 4, 3);
+            usernameTextBox.MaxLength = 11;
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(233, 29);
             usernameTextBox.TabIndex = 0;
@@ -69,6 +70,7 @@
             passwordTextBox.ForeColor = SystemColors.Desktop;
             passwordTextBox.Location = new Point(58, 115);
             passwordTextBox.Margin = new Padding(4, 3, 4, 3);
+            passwordTextBox.MaxLength = 6;
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(233, 29);
             passwordTextBox.TabIndex = 1;
