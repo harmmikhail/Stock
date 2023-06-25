@@ -34,7 +34,17 @@ namespace Stock
                     .Where(c => c.LastTimeDelivery.Date == selectedDate)
                     .ToList();
 
-                dataGridView1.DataSource = checkin;
+                int recordCount = checkin.Count;
+
+                if (recordCount > 0)
+                {
+                    dataGridView.DataSource = checkin;
+                    MessageBox.Show($"Знайдено {recordCount} записів.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Записів не знайдено. Виберіть іншу дату.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -42,7 +52,7 @@ namespace Stock
         {
             Context context = new Context();
             List<Checkin> checkin = context.Checkin.ToList();
-            dataGridView1.DataSource= checkin;
+            dataGridView.DataSource = checkin;
         }
     }
 }

@@ -19,23 +19,23 @@ namespace Stock
 
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridView = new DataGridView();
             button1 = new Button();
             dateTimePicker = new DateTimePicker();
             button2 = new Button();
             label1 = new Label();
             button3 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(339, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(645, 527);
-            dataGridView1.TabIndex = 0;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(339, 3);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowTemplate.Height = 25;
+            dataGridView.Size = new Size(645, 527);
+            dataGridView.TabIndex = 0;
             // 
             // button1
             // 
@@ -101,22 +101,22 @@ namespace Stock
             Controls.Add(button2);
             Controls.Add(dateTimePicker);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridView);
             Name = "InventoryListForm";
             Text = "Інвентарна відомість";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         public void SetData(List<Checkin> checkin)
         {
-            dataGridView1.DataSource = checkin;
+            dataGridView.DataSource = checkin;
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView;
         private Button button1;
         private DateTimePicker dateTimePicker;
         private Button button2;
