@@ -23,5 +23,26 @@ namespace Stock
             this.Hide();
             form1.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dateTimePicker.Value.Date;
+
+            using (var context = new Context())
+            {
+                List<Checkin> checkin = context.Checkin
+                    .Where(c => c.LastTimeDelivery.Date == selectedDate)
+                    .ToList();
+
+                dataGridView1.DataSource = checkin;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Context context = new Context();
+            List<Checkin> checkin = context.Checkin.ToList();
+            dataGridView1.DataSource= checkin;
+        }
     }
 }
