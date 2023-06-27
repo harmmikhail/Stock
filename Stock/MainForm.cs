@@ -39,9 +39,7 @@ namespace Stock
             InventoryListForm form2 = new InventoryListForm();
             this.Hide();
             List<Checkin> checkin = context.Checkin.ToList();
-
             form2.SetData(checkin);
-
             form2.ShowDialog();
         }
     }
